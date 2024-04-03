@@ -1,5 +1,4 @@
 import React from "react";
-import { alignCenter, flex } from "../styles";
 
 interface NavStyleProps {
     isHovered: boolean;
@@ -16,17 +15,17 @@ export const NavStyle : React.CSSProperties = ({
     height: '100%',
 });
 
-export const NavIcon : React.CSSProperties = ({
-    ...flex,
-    ...alignCenter,
+export const NavItem : React.CSSProperties = ({
+    height: '5vh',
+    fontSize: '4vh',
 
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+});
+
+export const NavLink : React.CSSProperties = ({
     position: 'relative',
     top: '5vh',
     left: '0.5vw',
-
-    gap: '10%',
-
-    height: '5vh',
-
-    fontSize: '4vh'
 });
