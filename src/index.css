@@ -25,3 +25,9 @@ h1, h2, h3, h4, h5, h6{
   color: var(--secondary);
 }
 
+p, a, li {
+  font-family: 'Chivo Mono', monospace;
+  color: #EBf5EE;
+  text-decoration: none;
+}
+

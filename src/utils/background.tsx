@@ -29,13 +29,18 @@ const FloatingLines = () => {
     return (
         <div
             style={{
-                position: 'absolute',
+                position: 'fixed',
                 top: 0,
                 left: 0,
                 right: 0,
                 bottom: 0,
                 pointerEvents: 'none',
-                overflow: 'hidden'
+                overflow: 'hidden',
+
+                height: '100vh',
+                width: '100vw',
+
+                zIndex: -1,
             }}
         >
             {springs.map((props, index) => (

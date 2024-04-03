@@ -1,13 +1,16 @@
 import React from 'react';
-import FloatingLines from "../background/background";
+import FloatingLines from "../utils/background";
+import Nav from "../utils";
+import {Main, Subtitle, Title} from "./style";
 
 export default function Home() {
     return (
-        <div style={{ position: 'relative', minHeight: '100vh' }}>
+        <div style={Main}>
             <FloatingLines />
-            <div style={{ position: 'relative', zIndex: 1 }}>
-                <h1>Welcome to the React App</h1>
-                <p>This is the home page of the app.</p>
+            <Nav />
+            <div>
+                <h1 style={Title}>FusionCards</h1>
+                <h2 style={Subtitle}>Learn fast way with flash cards</h2>
             </div>
         </div>
     );
