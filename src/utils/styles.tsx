@@ -5,7 +5,7 @@ interface NavStyleProps {
     isHovered: boolean;
 }
 
-export const NavStyle = (props: NavStyleProps): React.CSSProperties => ({
+export const NavStyle : React.CSSProperties = ({
     position: 'fixed',
     top: 0,
     left: 0,
@@ -14,7 +14,6 @@ export const NavStyle = (props: NavStyleProps): React.CSSProperties => ({
     backdropFilter: 'blur(10px)',
 
     height: '100%',
-    width: props.isHovered ? '15vw' : '3vw',
 });
 
 export const NavIcon : React.CSSProperties = ({

@@ -1,14 +1,25 @@
 import React from "react";
 import { NavStyle, NavIcon } from './styles';
 import { HiHome } from "react-icons/hi2";
+import {animated, config, useSpring} from "react-spring";
 
 function Nav() {
 
     const [isHovered, setIsHovered] = React.useState(false);
 
+    const smoothHover = useSpring({
+        config: config.stiff,
+        from: {
+            width: '3vw'
+        },
+        to: {
+            width: isHovered ? '15vw' : '3vw'
+        }
+    })
+
     return (
-        <div
-            style={NavStyle({isHovered})}
+        <animated.div
+            style={{...NavStyle, ...smoothHover}}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -21,7 +32,7 @@ function Nav() {
                     )
                 }
             </div>
-        </div>
+        </animated.div>
     );
 }
 
