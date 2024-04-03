@@ -11,13 +11,13 @@ const Main: React.CSSProperties = {
 }
 
 const Title: React.CSSProperties = {
-    fontSize: '3em',
+    fontSize: '6rem',
     color: '#F2BAC9',
     textAlign: 'center',
 }
 
 const Subtitle: React.CSSProperties = {
-    fontSize: '1.5em',
+    fontSize: '1.5rem',
     color: '#EBf5EE',
     textAlign: 'center',
 

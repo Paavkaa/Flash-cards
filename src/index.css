@@ -12,6 +12,11 @@
     /*Background colors*/
   --primary-background: #0E0023;
   --secondary-background: #47198B;
+
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
