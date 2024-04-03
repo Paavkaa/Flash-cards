@@ -12,7 +12,7 @@ function Nav() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div style={NavIcon({isHovered})}>
+            <div style={NavIcon}>
                 <HiHome />
 
                 {
