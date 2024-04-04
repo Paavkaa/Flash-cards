@@ -72,6 +72,7 @@ a:hover {
 
   color: var(--primary-background);
   font-family: 'Azeret Mono', serif;
+  font-weight: bold;
 
   margin: 10px;
 }

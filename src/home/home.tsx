@@ -14,9 +14,9 @@ export default function Home() {
             </div>
 
             <div style={{margin: '5vh 0 10vh'}}>
-                <button className="MediumButton">
+                <a href={"/login"} className="MediumButton">
                     Create account
-                </button>
+                </a>
 
                 <button className="MediumButton">
                     Log in
