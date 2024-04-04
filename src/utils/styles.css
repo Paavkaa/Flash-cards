@@ -1,0 +1,26 @@
+.NavStyle {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: #EBf5EE10;
+    backdrop-filter: blur(10px);
+
+    height: 100%;
+}
+
+.NavItem {
+    height: 5vh;
+    font-size: 4vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.NavLink {
+    margin-top: 5vh;
+    display: flex;;
+    justify-content: center;
+    gap: 10%;
+}

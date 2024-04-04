@@ -1,41 +1,43 @@
 import React from "react";
-import { NavStyle, NavItem, NavLink } from './styles';
+import './styles.css';
 import { HiHome } from "react-icons/hi2";
-import {animated, config, useSpring} from "react-spring";
+import {useSpring, config, animated} from "react-spring";
 
-function Nav() {
-
+export default function Nav() {
     const [isHovered, setIsHovered] = React.useState(false);
 
     const smoothHover = useSpring({
         config: config.stiff,
         from: {
-            width: '3vw'
+            width: '4vw'
         },
         to: {
-            width: isHovered ? '15vw' : '3vw'
+            width: isHovered ? '20vw' : '4vw'
         }
-    })
+    });
 
     return (
         <animated.div
-            style={{...NavStyle, ...smoothHover}}
+            style={{...smoothHover}}
+            className = "NavStyle"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
+            <div>
 
-            <div style={NavLink}>
-                <HiHome style={NavItem} />
+                <div className="NavLink">
+                    <div className = "NavItem" >
+                        <HiHome/>
+                    </div>
 
-                {
-                    isHovered && (
-                        <a style={NavItem} href="/">home</a>
-                    )
-                }
+                    {
+                        isHovered && (
+                            <a className = "NavItem" href="/">home</a>
+                        )
+                    }
+                </div>
             </div>
 
         </animated.div>
     );
 }
-
-export default Nav;
