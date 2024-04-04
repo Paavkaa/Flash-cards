@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap');
-
-/*To import: VT323*/
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Chivo+Mono:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&display=swap');
 
 :root {
   /*Text colors*/
@@ -24,15 +22,79 @@ body {
   color: var(--primary);
   margin: 0;
   font-family: 'Chivo Mono', monospace;
+
 }
-h1, h2, h3, h4, h5, h6{
-  font-family: 'Press Start 2P', cursive;
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
   color: var(--secondary);
 }
 
-p, a, li {
+h3, h4, h5, h6 {
+  font-family: 'Azeret Mono', serif;
+  letter-spacing: 2px;
+}
+
+h1, h2{
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 3px;
+}
+
+p, a, li, button {
+  all: unset;
   font-family: 'Chivo Mono', monospace;
   color: #EBf5EE;
   text-decoration: none;
 }
 
+a, button {
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--submit);
+}
+
+.DivBackground {
+  backdrop-filter: blur(10px);
+  background: #47198B50;
+
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.SmallButton, .MediumButton, .LargeButton {
+  background: var(--secondary);
+
+  color: var(--primary-background);
+  font-family: 'Azeret Mono', serif;
+
+  margin: 10px;
+}
+
+.SmallButton:hover, .MediumButton:hover, .LargeButton:hover {
+  background: var(--submit);
+}
+
+.SmallButton {
+  padding: 8px 24px;
+  border-radius: 20px;
+}
+
+.MediumButton {
+  font-size: 1.5rem;
+
+  padding: 12px 32px;
+  border-radius: 25px;
+}
+
+.LargeButton {
+  font-size: 2rem;
+
+  padding: 16px 48px;
+  border-radius: 50px;
+}

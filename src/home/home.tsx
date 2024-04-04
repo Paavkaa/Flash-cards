@@ -1,16 +1,32 @@
 import React from 'react';
 import FloatingLines from "../utils/background";
 import Nav from "../utils";
-import {Main, Subtitle, Title} from "./style";
+import "./style.css";
 
 export default function Home() {
     return (
-        <div style={Main}>
-            <FloatingLines />
-            <Nav />
+        <div className="Main">
+            <FloatingLines/>
+            <Nav/>
             <div>
-                <h1 style={Title}>FusionCards</h1>
-                <h2 style={Subtitle}>Learn fast way with flash cards</h2>
+                <h1 className="Title">FusionCards</h1>
+                <h2 className="Subtitle">Learn fast way with flash cards</h2>
+            </div>
+
+            <div style={{margin: '5vh 0 10vh'}}>
+                <button className="MediumButton">
+                    Create account
+                </button>
+
+                <button className="MediumButton">
+                    Log in
+                </button>
+            </div>
+
+            <div className="DivBackground">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis commodi corporis dolorem
+                ducimus expedita fugit, iste neque nesciunt porro repellendus veniam. Consectetur ipsa, iste natus
+                numquam vel veniam voluptatum!
             </div>
         </div>
     );
