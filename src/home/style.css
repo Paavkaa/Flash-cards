@@ -23,3 +23,32 @@
 
     margin-bottom: 5vh;
 }
+
+.Card {
+    background: var(--primary);
+
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+
+    flex-direction: column;
+
+    width: 20vw;
+    height: 50vh;
+
+    padding: 20px;
+    margin: 5px;
+
+    border-radius: 20px;
+}
+
+.Card h3 {
+    color: var(--secondary-background);
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+}
+
+.Card p, span, label {
+    color: var(--primary-background);
+}

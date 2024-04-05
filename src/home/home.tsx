@@ -2,6 +2,7 @@ import React from 'react';
 import FloatingLines from "../utils/background";
 import Nav from "../utils";
 import "./style.css";
+import Card from "../utils/card";
 
 export default function Home() {
     return (
@@ -28,6 +29,8 @@ export default function Home() {
                 ducimus expedita fugit, iste neque nesciunt porro repellendus veniam. Consectetur ipsa, iste natus
                 numquam vel veniam voluptatum!
             </div>
+
+            <Card />
         </div>
     );
 }

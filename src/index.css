@@ -79,23 +79,30 @@ a:hover {
 
 .SmallButton:hover, .MediumButton:hover, .LargeButton:hover {
   background: var(--submit);
+  color: var(--primary-background);
 }
 
 .SmallButton {
-  padding: 8px 24px;
+  padding: 8px 24px 10px;
   border-radius: 20px;
+
+  height: 1rem;
 }
 
 .MediumButton {
   font-size: 1.5rem;
 
-  padding: 12px 32px;
+  padding: 12px 32px 16px;
   border-radius: 25px;
+
+  height: 1.5rem;
 }
 
 .LargeButton {
   font-size: 2rem;
 
-  padding: 16px 48px;
+  padding: 16px 48px 20px;
   border-radius: 50px;
+
+  height: 2rem;
 }
