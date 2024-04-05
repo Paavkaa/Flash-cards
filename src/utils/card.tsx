@@ -22,9 +22,21 @@ export default function Card() {
             style={{ transform, cursor: 'pointer' }}
             onClick={toggleFlip} // Add click event to toggle the flip state
         >
-            <h3>Card</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
-            <a href="/login" className="SmallButton">Log in</a>
+            {
+                isFlipped ? (
+                    <div style={{ transform: 'scaleX(-1)' }}>
+                        <h3>Create account</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
+                        <a href="/login" className="SmallButton">Register</a>
+                    </div>
+                ) : (
+                    <div>
+                        <h3>Have account</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
+                        <a href="/login" className="SmallButton">Log in</a>
+                    </div>
+                )
+            }
         </animated.div>
     );
 }

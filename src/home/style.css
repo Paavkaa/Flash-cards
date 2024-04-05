@@ -27,13 +27,6 @@
 .Card {
     background: var(--primary);
 
-    display: flex;
-
-    justify-content: start;
-    align-items: center;
-
-    flex-direction: column;
-
     width: 20vw;
     height: 50vh;
 
@@ -41,6 +34,15 @@
     margin: 5px;
 
     border-radius: 20px;
+}
+
+.Card > div {
+    display: flex;
+
+    justify-content: start;
+    align-items: center;
+
+    flex-direction: column;
 }
 
 .Card h3 {
