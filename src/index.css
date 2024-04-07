@@ -13,6 +13,8 @@
 
 }
 
+/* GLOBAL STYLES */
+
 html {
   font-size: 16px;
 }
@@ -29,6 +31,8 @@ body {
   display: flex;
   justify-content: center;
 }
+
+/* HEADERS AND TEXT */
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--secondary);
@@ -59,13 +63,7 @@ a:hover {
   color: var(--submit);
 }
 
-.DivBackground {
-  backdrop-filter: blur(10px);
-  background: #47198B50;
-
-  border-radius: 10px;
-  padding: 20px;
-}
+/* BUTTONS */
 
 .SmallButton, .MediumButton, .LargeButton {
   background: var(--secondary);
@@ -105,4 +103,38 @@ a:hover {
   border-radius: 50px;
 
   height: 2rem;
+}
+
+/* POSITIONING */
+
+.Flex {
+  display: flex;
+}
+
+.JustifyCenter {
+  justify-content: center;
+}
+
+.AlignCenter {
+  align-items: center;
+}
+
+/* content width */
+  .Width100 {
+    width: 100%;
+  }
+
+  .Width50 {
+    width: 50%;
+  }
+
+
+/* OTHER */
+
+.DivBackground {
+  backdrop-filter: blur(10px);
+  background: #47198B50;
+
+  border-radius: 10px;
+  padding: 20px;
 }
