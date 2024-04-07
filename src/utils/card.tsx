@@ -5,28 +5,26 @@ import './styles.css'
 export default function Card() {
     // State to track whether the card is flipped
     const [isFlipped, setIsFlipped] = useState(false)
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-    // Function to track mouse position
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        const { left, top } = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - left;
-        const y = e.clientY - top;
-
-        setMousePosition({ x, y });
-
-        console.log(mousePosition);
-    };
 
     const calculateRotation = (x: number, y: number, cardElement: HTMLDivElement) => {
         const cardRect = cardElement.getBoundingClientRect();
-        const cardWidth = cardRect.width;
-        const cardHeight = cardRect.height;
-        const tiltAngle = 10;
-        const angleX = (cardHeight / 2 - y) / cardHeight * tiltAngle;
-        const angleY = (x - cardWidth / 2) / cardWidth * tiltAngle;
+        const cardCenterX = cardRect.left + cardRect.width / 2;
+        const cardCenterY = cardRect.top + cardRect.height / 2;
+        const mouseX = x - cardCenterX;
+        const mouseY = y - cardCenterY;
+        const rotateX = (mouseY / cardRect.height) * 10; // Adjust the factor as needed
+        const rotateY = (mouseX / cardRect.width) * -10; // Adjust the factor as needed
 
-        return `rotateX(${angleX}deg) rotateY(${angleY}deg)`;
+        return `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        const cardElement = e.currentTarget;
+        const { left, top, width, height } = cardElement.getBoundingClientRect();
+        const x = e.clientX - left;
+        const y = e.clientY - top;
+
+        cardElement.style.transform = calculateRotation(x, y, cardElement);
     }
 
     // Spring animation definitions
