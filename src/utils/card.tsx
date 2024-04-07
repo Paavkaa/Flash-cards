@@ -8,13 +8,15 @@ export default function Card() {
 
     const calculateRotation = (x: number, y: number, cardElement: HTMLDivElement) => {
         const cardRect = cardElement.getBoundingClientRect();
-        const cardCenterX = cardRect.left + cardRect.width / 2;
-        const cardCenterY = cardRect.top + cardRect.height / 2;
+        const cardCenterX = cardRect.width / 2;
+        const cardCenterY = cardRect.height / 2;
         const mouseX = x - cardCenterX;
         const mouseY = y - cardCenterY;
-        const rotateX = (mouseY / cardRect.height) * 10; // Adjust the factor as needed
-        const rotateY = (mouseX / cardRect.width) * -10; // Adjust the factor as needed
+        const rotateX = (mouseY / cardRect.height) * -10; // Adjust the factor as needed
+        const rotateY = (mouseX / cardRect.width) * 10 * (mouseX < cardCenterX ? 1 : -1);
 
+
+        console.log(cardCenterX, cardCenterY, mouseX, mouseY, rotateX, rotateY);
         return `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
 
@@ -25,6 +27,11 @@ export default function Card() {
         const y = e.clientY - top;
 
         cardElement.style.transform = calculateRotation(x, y, cardElement);
+    }
+
+    const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+        const cardElement = e.currentTarget;
+        cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     }
 
     // Spring animation definitions
@@ -43,8 +50,9 @@ export default function Card() {
                 transform,
                 cursor: 'pointer',
             }}
-            onClick={toggleFlip} // Add click event to toggle the flip state
-            onMouseMove={handleMouseMove} // Add mouse move event to track the mouse position
+            onClick={toggleFlip}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
         >
             {
                 isFlipped ? (
