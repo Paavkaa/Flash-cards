@@ -15,14 +15,12 @@ export default function Card() {
         const rotateX = (mouseY / cardRect.height) * -10; // Adjust the factor as needed
         const rotateY = (mouseX / cardRect.width) * 10 * (mouseX < cardCenterX ? 1 : -1);
 
-
-        console.log(cardCenterX, cardCenterY, mouseX, mouseY, rotateX, rotateY);
         return `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     };
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
         const cardElement = e.currentTarget;
-        const { left, top, width, height } = cardElement.getBoundingClientRect();
+        const { left, top } = cardElement.getBoundingClientRect();
         const x = e.clientX - left;
         const y = e.clientY - top;
 
@@ -56,7 +54,7 @@ export default function Card() {
         >
             {
                 isFlipped ? (
-                    <div style={{ transform: 'scaleX(-1)' }}>
+                    <div>
                         <h3>Create account</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
                         <a href="/login" className="SmallButton">Register</a>
