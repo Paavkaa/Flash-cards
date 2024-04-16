@@ -72,7 +72,7 @@ p, a, li, button {
 
 a {
   text-decoration: underline solid;
-  text-underline-offset: 1.5px;
+  text-underline-offset: 1px;
 }
 
 a, button {

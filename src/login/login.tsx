@@ -20,13 +20,13 @@ export default function Login() {
 
                 <form className="justifyCenter" action="">
                     <div className="labelPopUp width100">
-                        <label id="emailLabel" htmlFor="email">
-                            Email
+                        <label id="loginNameLabel" htmlFor="email">
+                            Nickname / Email
                         </label>
                         <input
                             onChange={(e) => labelUp(e, setIsFilled)}
                             className="inputText"
-                            type="email"
+                            type="loginName"
                             id="email"
                             name="email"
                             required
@@ -62,8 +62,9 @@ export default function Login() {
                     <h3>Other variations</h3>
 
                     <div className="flex column alignCenter width100">
-                        <a className="mediumButton borderButton textCenter width80" href="/login"> <BsGoogle /> Google</a>
-                        <a className="mediumButton borderButton textCenter width80" href="/login"><BsFacebook /> Facebook</a>
+                        <a className="mediumButton borderButton textCenter width80" href="/login">
+                            <BsGoogle/> Google</a>
+                        <a className="mediumButton borderButton textCenter width80" href="/login"><BsFacebook/> Facebook</a>
                     </div>
                 </div>
             </div>
@@ -84,8 +85,23 @@ export function Register() {
             <div className="divBackground loginPosition">
                 <h2 className="textCenter">Register</h2>
 
-                <form action="">
-                    <div className="width100 labelPopUp">
+                <form className="justifyCenter" action="">
+                    <div className="labelPopUp width100">
+                        <label id="nicknameLabel" htmlFor="nickname">
+                            Nickname
+                        </label>
+                        <input
+                            onChange={(e) => labelUp(e, setIsFilled)}
+                            className="inputText"
+                            type="text"
+                            id="nickname"
+                            name="nickname"
+                            required
+                        />
+
+                    </div>
+
+                    <div className="labelPopUp width100">
                         <label id="emailLabel" htmlFor="email">
                             Email
                         </label>
@@ -99,23 +115,57 @@ export function Register() {
                         />
                     </div>
 
-                    <div className="width100 labelPopUp">
-                        <label id="passwordLabel" htmlFor="password">
-                            Password
-                        </label>
-                        <input
-                            onChange={(e) => labelUp(e, setIsFilled)}
-                            className="inputText"
-                            type="password"
-                            id="password"
-                            name="password"
-                            required
-                        />
+
+                    <div className="width100 marginTop">
+                        <div className="labelPopUp width100">
+                            <label id="passwordLabel" htmlFor="password">
+                                Password
+                            </label>
+                            <input
+                                onChange={(e) => labelUp(e, setIsFilled)}
+                                className="inputText"
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                            />
+                        </div>
+
+                        <div className="labelPopUp width100">
+                            <label id="passwordCheckLabel" htmlFor="password">
+                                Password again
+                            </label>
+                            <input
+                                onChange={(e) => labelUp(e, setIsFilled)}
+                                className="inputText"
+                                type="password"
+                                id="passwordCheck"
+                                name="password"
+                                required
+                            />
+                        </div>
                     </div>
 
-                    <button className="smallButton" type="submit">
-                        Register
+                    <button className="mediumButton"
+                            id="logIn"
+                            type="submit">
+                        Log in
                     </button>
+
+                    <p>
+                        Already have account? <a href="/login">Sign in!</a>
+                    </p>
+
+                    <div className="flex column alignCenter">
+                        <h3>Connect with your account</h3>
+
+                        <div className="flex column alignCenter width100">
+                            <a className="mediumButton borderButton textCenter width80" href="/login">
+                                <BsGoogle/> Google</a>
+                            <a className="mediumButton borderButton textCenter width80"
+                               href="/login"><BsFacebook/> Facebook</a>
+                        </div>
+                    </div>
                 </form>
             </div>
         </>
@@ -126,7 +176,7 @@ function labelUp(
     e: React.ChangeEvent<HTMLInputElement>,
     setIsFilled: React.Dispatch<React.SetStateAction<{ email: boolean; password: boolean }>>
 ) {
-    const { id, value } = e.target;
+    const {id, value} = e.target;
     const isFilled = value.trim().length > 0;
 
     setIsFilled((prevState) => ({
