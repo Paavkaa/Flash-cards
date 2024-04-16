@@ -37,3 +37,17 @@
     max-width: 1000px;
     margin: 0 50px;
 }
+
+.CardSide {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.CardSide.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.CardSide.visible {
+    opacity: 1;
+    pointer-events: auto;
+}

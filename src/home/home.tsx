@@ -14,12 +14,12 @@ export default function Home() {
                 <h2 className="Subtitle">Learn fast way with flash cards</h2>
             </div>
 
-            <div className="Flex JustifyCenter">
+            <div className="flex justifyCenter">
                 <div className="PreviewCard">
                     <Card/>
                 </div>
 
-                <div className="DivBackground Width50">
+                <div className="divBackground width50">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis commodi corporis
                     dolorem
                     ducimus expedita fugit, iste neque nesciunt porro repellendus veniam. Consectetur ipsa, iste natus

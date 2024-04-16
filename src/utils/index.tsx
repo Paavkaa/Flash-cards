@@ -83,11 +83,15 @@ export function Card() {
     // Spring animation definitions
     const { transform } = useSpring({
         transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
-        config: { mass: 5, tension: 500, friction: 80 },
+        config: { mass: 5, tension: 500, friction: 80, delay: 300},
     });
 
     // Function to flip the card
     const toggleFlip = () => setIsFlipped(!isFlipped);
+
+    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.stopPropagation(); // Prevents the click from reaching the card container
+    };
 
     return (
         <animated.div
@@ -105,13 +109,13 @@ export function Card() {
                     <div>
                         <h3>Create account</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
-                        <a href="/login" className="SmallButton">Register</a>
+                        <a href="/register" onClick={handleLinkClick} className="smallButton">Register</a>
                     </div>
                 ) : (
                     <div>
                         <h3>Have account</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
-                        <a href="/login" className="SmallButton">Log in</a>
+                        <a href="/login" onClick={handleLinkClick} className="smallButton">Log in</a>
                     </div>
                 )
             }

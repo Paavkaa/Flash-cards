@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './home/home';
-import Login from "./login/login";
+import Login, {Register} from "./login/login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 export default function App() {
@@ -11,6 +11,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
             </Routes>
         </BrowserRouter>
     )

@@ -38,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--secondary);
 }
 
-h3, h4, h5, h6 {
+h3, h4, h5, h6, label {
   font-family: 'Azeret Mono', serif;
   letter-spacing: 2px;
 }
@@ -48,10 +48,13 @@ h1, h2{
   letter-spacing: 3px;
 }
 
+p, a, li, button, label {
+  color: var(--primary);
+}
+
 p, a, li, button {
   all: unset;
   font-family: 'Chivo Mono', monospace;
-  color: #EBf5EE;
   text-decoration: none;
 }
 
@@ -65,7 +68,7 @@ a:hover {
 
 /* BUTTONS */
 
-.SmallButton, .MediumButton, .LargeButton {
+.smallButton, .mediumButton, .largeButton {
   background: var(--secondary);
 
   color: var(--primary-background);
@@ -75,19 +78,19 @@ a:hover {
   margin: 10px;
 }
 
-.SmallButton:hover, .MediumButton:hover, .LargeButton:hover {
+.smallButton:hover, .mediumButton:hover, .largeButton:hover {
   background: var(--submit);
   color: var(--primary-background);
 }
 
-.SmallButton {
+.smallButton {
   padding: 8px 24px 10px;
   border-radius: 20px;
 
   height: 1rem;
 }
 
-.MediumButton {
+.mediumButton {
   font-size: 1.5rem;
 
   padding: 12px 32px 16px;
@@ -96,7 +99,7 @@ a:hover {
   height: 1.5rem;
 }
 
-.LargeButton {
+.largeButton {
   font-size: 2rem;
 
   padding: 16px 48px 20px;
@@ -107,31 +110,50 @@ a:hover {
 
 /* POSITIONING */
 
-.Flex {
+.flex {
   display: flex;
 }
 
-.JustifyCenter {
+.justifyCenter {
   justify-content: center;
 }
 
-.AlignCenter {
+.alignCenter {
   align-items: center;
 }
 
 /* content width */
-  .Width100 {
+  .width100 {
     width: 100%;
   }
 
-  .Width50 {
+  .width60 {
+    width: 60%;
+  }
+
+  .width50 {
     width: 50%;
   }
+
+/* content height */
+  .height100 {
+    height: 100%;
+  }
+
+  .height50 {
+    height: 50%;
+  }
+
+/* text position */
+
+.textCenter {
+    text-align: center;
+}
 
 
 /* OTHER */
 
-.DivBackground {
+.divBackground {
   backdrop-filter: blur(10px);
   background: #47198B50;
 

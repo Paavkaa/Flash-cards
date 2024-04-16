@@ -1,0 +1,49 @@
+/* LOGIN */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+label {
+    font-family: 'Azeret Mono', serif;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+input {
+    all: unset;
+}
+
+.inputText {
+    width: 80%;
+    height: 1.8rem;
+    font-size: 1rem;
+
+    padding-left: 0.5rem;
+
+    background: #EBf5EE10;
+    border-radius: 5px;
+}
+
+.labelPopUp {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0.5rem 0;
+}
+
+.labelPopUp > label {
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+
+    transform: translateY(1.15rem);
+    transition: transform 0.2s ease-in-out;
+}
+
+.labelPopUp:hover > label,
+.labelPopUp:focus-within > label,
+.labelPopUp > label.labelUp {
+    transform: translateY(0);
+}
