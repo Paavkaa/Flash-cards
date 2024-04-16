@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './styles.css';
-import { HiHome } from "react-icons/hi2";
+import {HiHome, HiUser} from "react-icons/hi2";
 import {useSpring, config, animated} from "react-spring";
 
 export default function Nav() {
@@ -12,7 +12,7 @@ export default function Nav() {
             width: '4vw'
         },
         to: {
-            width: isHovered ? '20vw' : '4vw'
+            minWidth: isHovered ? '20vw' : '4vw'
         }
     });
 
@@ -23,19 +23,24 @@ export default function Nav() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            <div>
 
-                <div className="NavLink">
-                    <div className = "NavItem" >
-                        {
-                            isHovered ?
-                                <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/"><HiHome/> home</a> : <HiHome/>
-                        }
-                    </div>
+            <div className="NavLink column" style={isHovered? {alignItems: "start"} : {alignItems: "center"}}>
+                <div className="NavItem">
+                    {
+                        isHovered ?
+                            <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/"><HiHome/> Home</a> :
+                            <HiHome/>
+                    }
+                </div>
 
+                <div className="NavItem">
+                    {
+                        isHovered ?
+                            <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/user"><HiUser/> User profile</a> :
+                            <HiUser/>
+                    }
                 </div>
             </div>
-
         </animated.div>
     );
 }
