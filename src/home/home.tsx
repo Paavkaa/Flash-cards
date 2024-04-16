@@ -1,8 +1,7 @@
 import React from 'react';
 import FloatingLines from "../utils/background";
-import Nav from "../utils";
+import Nav, {Card} from "../utils";
 import "./style.css";
-import Card from "../utils/card";
 
 export default function Home() {
     return (
@@ -13,16 +12,6 @@ export default function Home() {
             <div>
                 <h1 className="Title">FusionCards</h1>
                 <h2 className="Subtitle">Learn fast way with flash cards</h2>
-            </div>
-
-            <div style={{margin: '5vh 0 10vh'}}>
-                <a href={"/login"} className="MediumButton">
-                    Create account
-                </a>
-
-                <button className="MediumButton">
-                    Log in
-                </button>
             </div>
 
             <div className="Flex JustifyCenter">
