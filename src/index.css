@@ -88,11 +88,14 @@ a:hover {
 .smallButton, .mediumButton, .largeButton {
   background: var(--secondary);
 
+  white-space: nowrap;
+
   color: var(--primary-background);
   font-family: 'Azeret Mono', serif;
   font-weight: bold;
 
   text-decoration: none;
+  text-align: center;
 
   margin: 10px;
 }
@@ -160,6 +163,10 @@ a:hover {
 
 .column {
   flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
 }
 
 .justifyCenter {

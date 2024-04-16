@@ -5,7 +5,7 @@ import "./style.css";
 
 export default function Home() {
     return (
-        <div className="Main">
+        <div className="main">
             <FloatingLines/>
             <Nav/>
 
@@ -15,7 +15,7 @@ export default function Home() {
             </div>
 
             <div className="flex justifyCenter">
-                <div className="PreviewCard">
+                <div className="previewCard">
                     <Card/>
                 </div>
 

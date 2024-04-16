@@ -98,7 +98,7 @@ export function Card() {
 
     return (
         <animated.div
-            className="Card"
+            className="card largeCard"
             style={{
                 transform,
                 cursor: 'pointer',
@@ -109,13 +109,13 @@ export function Card() {
         >
             {
                 isFlipped ? (
-                    <div>
+                    <div className="flex column alignCenter">
                         <h3>Create account</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
                         <a href="/register" onClick={handleLinkClick} className="smallButton">Register</a>
                     </div>
                 ) : (
-                    <div>
+                    <div className="flex column alignCenter">
                         <h3>Have account</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
                         <a href="/login" onClick={handleLinkClick} className="smallButton">Log in</a>
@@ -123,5 +123,18 @@ export function Card() {
                 )
             }
         </animated.div>
+    );
+}
+
+export function CardPreview() {
+    return (
+        <div className="card smallCard">
+            <h3>Card title</h3>
+
+            <div className="flex row">
+                <p>1.1.2000</p>
+                <p><HiUser/> Username</p>
+            </div>
+        </div>
     );
 }
