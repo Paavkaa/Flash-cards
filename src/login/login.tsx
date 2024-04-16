@@ -3,6 +3,7 @@ import Nav from "../utils";
 import "./styles.css";
 import "../index.css";
 import FloatingLines from "../utils/background";
+import {BsFacebook, BsGoogle} from "react-icons/bs";
 
 export default function Login() {
     const [isFilled, setIsFilled] = React.useState({
@@ -14,11 +15,11 @@ export default function Login() {
         <>
             <FloatingLines/>
             <Nav/>
-            <div className="divBackground width60">
-                <h2 className="textCenter">Log in</h2>
+            <div className="divBackground loginPosition">
+                <h1 className="textCenter">Log in</h1>
 
-                <form action="">
-                    <div className="width100 labelPopUp">
+                <form className="justifyCenter" action="">
+                    <div className="labelPopUp width100">
                         <label id="emailLabel" htmlFor="email">
                             Email
                         </label>
@@ -32,7 +33,7 @@ export default function Login() {
                         />
                     </div>
 
-                    <div className="width100 labelPopUp">
+                    <div className="labelPopUp width100">
                         <label id="passwordLabel" htmlFor="password">
                             Password
                         </label>
@@ -46,10 +47,25 @@ export default function Login() {
                         />
                     </div>
 
-                    <button className="smallButton" type="submit">
+                    <button className="mediumButton"
+                            id="logIn"
+                            type="submit">
                         Log in
                     </button>
+
+                    <p>
+                        Don't have an account? <a href="/register">Sign up!</a>
+                    </p>
                 </form>
+
+                <div className="flex column alignCenter">
+                    <h3>Other variations</h3>
+
+                    <div className="flex column alignCenter width100">
+                        <a className="mediumButton borderButton textCenter width80" href="/login"> <BsGoogle /> Google</a>
+                        <a className="mediumButton borderButton textCenter width80" href="/login"><BsFacebook /> Facebook</a>
+                    </div>
+                </div>
             </div>
         </>
     )
@@ -65,7 +81,7 @@ export function Register() {
         <>
             <FloatingLines/>
             <Nav/>
-            <div className="divBackground width60">
+            <div className="divBackground loginPosition">
                 <h2 className="textCenter">Register</h2>
 
                 <form action="">
@@ -105,10 +121,6 @@ export function Register() {
         </>
     )
 }
-
-// utils/formUtils.ts
-
-// utils/formUtils.ts
 
 function labelUp(
     e: React.ChangeEvent<HTMLInputElement>,

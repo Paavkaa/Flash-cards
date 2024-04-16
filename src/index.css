@@ -48,6 +48,18 @@ h1, h2{
   letter-spacing: 3px;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
 p, a, li, button, label {
   color: var(--primary);
 }
@@ -56,6 +68,11 @@ p, a, li, button {
   all: unset;
   font-family: 'Chivo Mono', monospace;
   text-decoration: none;
+}
+
+a {
+  text-decoration: underline solid;
+  text-underline-offset: 1.5px;
 }
 
 a, button {
@@ -75,12 +92,27 @@ a:hover {
   font-family: 'Azeret Mono', serif;
   font-weight: bold;
 
+  text-decoration: none;
+
   margin: 10px;
+}
+
+.borderButton {
+  border-color: var(--primary);
+  color: var(--primary);
+
+  background: none;
 }
 
 .smallButton:hover, .mediumButton:hover, .largeButton:hover {
   background: var(--submit);
   color: var(--primary-background);
+}
+
+.borderButton:hover {
+  background: none;
+  color: var(--submit);
+    border-color: var(--submit);
 }
 
 .smallButton {
@@ -90,13 +122,21 @@ a:hover {
   height: 1rem;
 }
 
+.smallButton.borderButton {
+  border: 2px solid;
+}
+
 .mediumButton {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 
   padding: 12px 32px 16px;
   border-radius: 25px;
 
-  height: 1.5rem;
+  height: 1.3rem;
+}
+
+.mediumButton.borderButton {
+  border: 3px solid;
 }
 
 .largeButton {
@@ -108,10 +148,18 @@ a:hover {
   height: 2rem;
 }
 
+.largeButton.borderButton {
+  border: 5px solid;
+}
+
 /* POSITIONING */
 
 .flex {
   display: flex;
+}
+
+.column {
+  flex-direction: column;
 }
 
 .justifyCenter {
@@ -125,6 +173,10 @@ a:hover {
 /* content width */
   .width100 {
     width: 100%;
+  }
+
+  .width80 {
+    width: 80%;
   }
 
   .width60 {

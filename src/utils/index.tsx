@@ -27,11 +27,9 @@ export default function Nav() {
 
                 <div className="NavLink">
                     <div className = "NavItem" >
-                        <HiHome/>
                         {
-                            isHovered && (
-                                <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/">home</a>
-                            )
+                            isHovered ?
+                                <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/"><HiHome/> home</a> : <HiHome/>
                         }
                     </div>
 
