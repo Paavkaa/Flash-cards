@@ -132,7 +132,7 @@ export function CardPreview() {
             <h3>Card title</h3>
 
             <div className="flex row justifySpaceBetween">
-                <p>1.1.2000</p>
+                <p>In set: 13</p>
                 <p><HiUser/> Username</p>
             </div>
         </div>
