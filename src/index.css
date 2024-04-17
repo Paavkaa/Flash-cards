@@ -177,6 +177,10 @@ a:hover {
   align-items: center;
 }
 
+.justifySpaceBetween {
+  justify-content: space-between;
+}
+
 /* content width */
   .width100 {
     width: 100%;
@@ -209,6 +213,10 @@ a:hover {
     text-align: center;
 }
 
+/* Margin and padding */
+  .marginBottom20 {
+    margin-bottom: 20px;
+  }
 
 /* OTHER */
 

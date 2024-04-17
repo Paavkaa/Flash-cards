@@ -27,7 +27,10 @@
     align-items: center;
     justify-content: start;
 
+    height: 40px;
+
     margin: 15px 0;
+    gap: 25px;
 }
 
 .NavLink {
@@ -67,9 +70,11 @@
 
 .smallCard {
     min-width: 20%;
-    height: 10vh;
+    height: 100px;
 
     border-radius: 15px;
+
+    padding: 10px 20px;
 }
 
 .smallCard h3 {
@@ -89,4 +94,12 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
+}
+
+.cardHover:hover {
+    cursor: pointer;
+
+    transform: scale(1.02);
+    transition: ease-in-out 80ms;
+    box-shadow: rgba(0, 0, 0, 0.2)0 25px 50px -12px;
 }

@@ -12,7 +12,7 @@ export default function Nav() {
             width: '4vw'
         },
         to: {
-            minWidth: isHovered ? '20vw' : '4vw'
+            minWidth: isHovered ? '25%' : '4vw'
         }
     });
 
@@ -128,10 +128,10 @@ export function Card() {
 
 export function CardPreview() {
     return (
-        <div className="card smallCard">
+        <div className="card smallCard cardHover flex column justifySpaceBetween">
             <h3>Card title</h3>
 
-            <div className="flex row">
+            <div className="flex row justifySpaceBetween">
                 <p>1.1.2000</p>
                 <p><HiUser/> Username</p>
             </div>
