@@ -25,18 +25,18 @@ export default function Nav() {
         >
 
             <div className="NavLink column" style={isHovered? {alignItems: "start"} : {alignItems: "center"}}>
-                <div className="NavItem">
+                <div className="navItem">
                     {
                         isHovered ?
-                            <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/"><HiHome/> Home</a> :
+                            <a style={{fontFamily: 'Azeret Mono'}} className="navItem" href="/"><HiHome/> Home</a> :
                             <HiHome/>
                     }
                 </div>
 
-                <div className="NavItem">
+                <div className="navItem">
                     {
                         isHovered ?
-                            <a style={{fontFamily: 'Azeret Mono'}} className="NavItem" href="/user"><HiUser/> User profile</a> :
+                            <a style={{fontFamily: 'Azeret Mono'}} className="navItem" href="/user"><HiUser/> User profile</a> :
                             <HiUser/>
                     }
                 </div>
