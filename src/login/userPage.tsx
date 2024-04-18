@@ -82,13 +82,3 @@ function GridDisplaying({ headerText, numToDisplay, allSets, styles }: GridDispl
         </div>
     );
 }
-
-function setPreview() {
-    return (
-        <div className="divBackground">
-            <h3>Set Name</h3>
-            <p>Set Description</p>
-            <Card/>
-        </div>
-    );
-}

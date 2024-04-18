@@ -128,13 +128,14 @@ export function Card() {
 
 export function CardPreview() {
     return (
-        <div className="card smallCard cardHover flex column justifySpaceBetween">
+        <a className="card smallCard cardHover flex column justifySpaceBetween"
+           href="/set">
             <h3>Card title</h3>
 
             <div className="flex row justifySpaceBetween">
                 <p>In set: 13</p>
                 <p><HiUser/> Username</p>
             </div>
-        </div>
+        </a>
     );
 }

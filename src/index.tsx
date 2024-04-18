@@ -5,6 +5,7 @@ import Home from './home/home';
 import Login, {Register} from "./login/login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UserPage from "./login/userPage";
+import SetPage from "./login/setPage";
 
 export default function App() {
     return (
@@ -14,6 +15,7 @@ export default function App() {
                 <Route path="login" element={<Login />} />
                 <Route path="register" element={<Register />} />
                 <Route path="user" element={<UserPage />} />
+                <Route path="set" element={<SetPage />} />
             </Routes>
         </BrowserRouter>
     )

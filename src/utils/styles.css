@@ -107,6 +107,8 @@
 .cardHover:hover {
     cursor: pointer;
 
+    text-decoration: none;
+
     transform: scale(1.02);
     transition: ease-in-out 80ms;
     box-shadow: rgba(0, 0, 0, 0.2)0 25px 50px -12px;
