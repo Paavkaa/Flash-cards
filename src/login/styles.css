@@ -74,3 +74,15 @@ h3 {
 }
 
 /* CARD GRID */
+.pagination {
+    gap: 20px;
+}
+
+.pagination button:hover, .active {
+    color: var(--submit);
+}
+
+.pagination button:disabled {
+    color: var(--primary);
+    opacity: 0.3;
+}

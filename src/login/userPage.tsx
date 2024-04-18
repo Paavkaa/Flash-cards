@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Nav, { CardPreview } from "../utils";
+import Nav, {Card, CardPreview} from "../utils";
+import {HiArrowRight, HiArrowLeft} from "react-icons/hi";
 
 export default function UserPage() {
     const fav = Array.from({ length: 14 }, (_, i) => <CardPreview key={i} />);
@@ -9,7 +10,7 @@ export default function UserPage() {
             <Nav />
             <h1>Welcome "user"</h1>
 
-            <GridDisplaying headerText={'Favourite'} numToDisplay={3} allSets={fav} styles={"divBackground marginBottom20"} />
+            <GridDisplaying headerText={'Favourite'} numToDisplay={8} allSets={fav} styles={"divBackground marginBottom20"} />
             <GridDisplaying headerText={'All sets'} numToDisplay={12} allSets={all} styles={"divBackground"} />
         </div>
     );
@@ -17,15 +18,28 @@ export default function UserPage() {
 
 interface DisplayedSetsProps {
     allSets: JSX.Element[];
+    currentPage: number;
+    setsPerPage: number;
 }
 
-function DisplayedSets({ allSets }: DisplayedSetsProps) {
-    const [currentPage, setCurrentPage] = useState(1);
-    const setsPerPage = 12;
-
+function DisplayedSets({ allSets, currentPage, setsPerPage }: DisplayedSetsProps) {
     const indexOfLastSet = currentPage * setsPerPage;
     const indexOfFirstSet = indexOfLastSet - setsPerPage;
     const currentSets = allSets.slice(indexOfFirstSet, indexOfLastSet);
+
+    return <>{currentSets}</>;
+}
+
+interface GridDisplayingProps {
+    headerText: string;
+    numToDisplay: number;
+    allSets: JSX.Element[];
+    styles?: string;
+}
+
+function GridDisplaying({ headerText, numToDisplay, allSets, styles }: GridDisplayingProps) {
+    const [currentPage, setCurrentPage] = useState(1);
+    const setsPerPage = numToDisplay;
 
     const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
@@ -35,14 +49,18 @@ function DisplayedSets({ allSets }: DisplayedSetsProps) {
     }
 
     return (
-        <>
-            {currentSets}
-            <div>
+        <div className={styles}>
+            <h2>{headerText}</h2>
+            <div className="cardGrid">
+                <DisplayedSets allSets={allSets} currentPage={currentPage} setsPerPage={setsPerPage} />
+            </div>
+            <div className="flex justifyCenter pagination">
                 <button
                     onClick={() => paginate(currentPage - 1)}
                     disabled={currentPage === 1}
+                    className="flex alignCenter"
                 >
-                    Previous
+                    <HiArrowLeft/>
                 </button>
                 {pageNumbers.map(number => (
                     <button
@@ -56,28 +74,21 @@ function DisplayedSets({ allSets }: DisplayedSetsProps) {
                 <button
                     onClick={() => paginate(currentPage + 1)}
                     disabled={currentPage === pageNumbers.length}
+                    className="flex alignCenter"
                 >
-                    Next
+                    <HiArrowRight/>
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 
-interface GridDisplayingProps {
-    headerText: string;
-    numToDisplay: number;
-    allSets: JSX.Element[];
-    styles?: string;
-}
-
-function GridDisplaying({ headerText, numToDisplay, allSets, styles }: GridDisplayingProps) {
+function setPreview() {
     return (
-        <div className={styles}>
-            <h2>{headerText}</h2>
-            <div className="cardGrid">
-                <DisplayedSets allSets={allSets} />
-            </div>
+        <div className="divBackground">
+            <h3>Set Name</h3>
+            <p>Set Description</p>
+            <Card/>
         </div>
     );
 }
