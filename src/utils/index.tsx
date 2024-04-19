@@ -53,7 +53,12 @@ export function footer() {
     )
 }
 
-export function Card() {
+/*
+* TODO: Make Card() clean template and add content as props
+*   - Add a prop for the both sides of the card
+*   - Maybe the preview card can be a separate component ???
+* */
+export function Card(props: { frontSide: React.ReactNode; backSide: React.ReactNode }) {
     // State to track whether the card is flipped
     const [isFlipped, setIsFlipped] = useState(false)
 
@@ -92,10 +97,6 @@ export function Card() {
     // Function to flip the card
     const toggleFlip = () => setIsFlipped(!isFlipped);
 
-    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-        event.stopPropagation(); // Prevents the click from reaching the card container
-    };
-
     return (
         <animated.div
             className="card largeCard"
@@ -107,21 +108,7 @@ export function Card() {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            {
-                isFlipped ? (
-                    <div className="flex column alignCenter">
-                        <h3>Create account</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
-                        <a href="/register" onClick={handleLinkClick} className="smallButton">Register</a>
-                    </div>
-                ) : (
-                    <div className="flex column alignCenter">
-                        <h3>Have account</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
-                        <a href="/login" onClick={handleLinkClick} className="smallButton">Log in</a>
-                    </div>
-                )
-            }
+            {isFlipped ? props.frontSide : props.backSide}
         </animated.div>
     );
 }

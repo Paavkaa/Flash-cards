@@ -4,6 +4,10 @@ import Nav, {Card} from "../utils";
 import "./style.css";
 
 export default function Home() {
+    const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+        event.stopPropagation(); // Prevents the click from reaching the card container
+    };
+
     return (
         <div className="main">
             <FloatingLines/>
@@ -16,7 +20,23 @@ export default function Home() {
 
             <div className="flex justifyCenter">
                 <div className="previewCard">
-                    <Card/>
+                    <Card
+                        frontSide={
+                            <div className={"flex column alignCenter justifyCenter"}>
+                                <h3>Create account</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
+                                <a href="/register" onClick={handleLinkClick} className="smallButton">Register</a>
+                            </div>
+                        }
+
+                        backSide={
+                            <div className={"flex column alignCenter justifyCenter"}>
+                                <h3>Have account</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, tempore?</p>
+                                <a href="/login" onClick={handleLinkClick} className="smallButton">Log in</a>
+                            </div>
+                        }
+                    />
                 </div>
 
                 <div className="divBackground width50">
