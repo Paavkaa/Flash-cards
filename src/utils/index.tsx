@@ -112,10 +112,9 @@ export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
     const toggleFlip = () => setIsFlipped(!isFlipped);
 
     return (
-        <div onClick={() => setIsFlipped(!isFlipped)}>
-            <animated.div style={{ transform }}>
+        <div onClick={() => setIsFlipped(!isFlipped)} >
+            <animated.div style={{ transform }} className="card">
                 <animated.div
-                    className="card"
                     style={{
                         transform: 'rotateY(0deg)',
                         opacity: frontOpacity,
@@ -124,10 +123,10 @@ export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
                     {frontSide}
                 </animated.div>
                 <animated.div
-                    className="card"
                     style={{
                         opacity: backOpacity,
                         transform: 'rotateY(180deg)',
+                        position: 'absolute'
 
                     }}
                 >

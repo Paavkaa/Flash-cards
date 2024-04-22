@@ -42,10 +42,13 @@
 }
 
 /* CARD */
-.card {
+
+.card{
+    position: relative;
+
     background: var(--primary);
 
-    position: absolute;
+
     width: 100%;
     height: 100%;
 
@@ -67,6 +70,7 @@
 
 .card p, span, label {
     color: var(--primary-background);
+    transition: opacity 0.5s
 }
 
 .previewCard {
