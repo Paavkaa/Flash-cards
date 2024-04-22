@@ -45,13 +45,13 @@ export default function Nav() {
     );
 }
 
-export function footer() {
+/*export function footer() {
     return (
         <div className="Footer">
 
         </div>
     )
-}
+}*/
 
 interface CardProps {
     frontSide: React.ReactNode;
@@ -88,7 +88,7 @@ export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
         cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     }
 
-    const { transform, opacity } = useSpring({
+    const { transform } = useSpring({
         to: {
             opacity: isFlipped ? 1 : 0,
             transform: `rotateY(${isFlipped ? 180 : 0}deg)`
@@ -99,9 +99,6 @@ export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
         },
         config: { mass: 5, tension: 500, friction: 80 }
     });
-
-    // Function to flip the card
-    const toggleFlip = () => setIsFlipped(!isFlipped);
 
     return (
         <div onClick={() => setIsFlipped(!isFlipped)}

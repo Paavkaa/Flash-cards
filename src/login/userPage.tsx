@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav, {Card, SetPreview} from "../utils";
+import Nav, {SetPreview} from "../utils";
 import {HiArrowRight, HiArrowLeft} from "react-icons/hi";
 
 export default function UserPage() {

@@ -1,7 +1,5 @@
 import React from "react";
 import Nav, {Card, Divider} from "../utils";
-import {IonItemDivider} from "@ionic/react";
-import {RxDividerVertical} from "react-icons/rx";
 
 export default function SetPage() {
     return (
