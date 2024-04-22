@@ -5,7 +5,7 @@ export default function SetPage() {
     return (
         <div className="main">
             <Nav />
-            <div className="divBackground flex column alignCenter">
+            <div className="divBackground flex column alignCenter width80">
                 <h1>Set name</h1>
 
                 <Card
@@ -22,9 +22,22 @@ export default function SetPage() {
                         </>
                     }
                 />
-                <button className="mediumButton">
-                    Let's start!
-                </button>
+
+                <div>
+                    <h3>All cards</h3>
+                    <div className="flex column">
+                        <div>
+                            <div>
+                                <p>Frontside</p>
+                            </div>
+
+                            <div>
+                                <p>Backside</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     );

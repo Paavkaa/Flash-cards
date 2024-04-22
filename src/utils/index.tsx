@@ -58,7 +58,12 @@ export function footer() {
 *   - Add a prop for the both sides of the card
 *   - Maybe the preview card can be a separate component ???
 * */
-export function Card(props: { frontSide: React.ReactNode; backSide: React.ReactNode }) {
+interface CardProps {
+    frontSide: React.ReactNode;
+    backSide: React.ReactNode;
+}
+
+export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
     // State to track whether the card is flipped
     const [isFlipped, setIsFlipped] = useState(false)
 
@@ -88,28 +93,48 @@ export function Card(props: { frontSide: React.ReactNode; backSide: React.ReactN
         cardElement.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     }
 
-    // Spring animation definitions
-    const { transform } = useSpring({
-        transform: `perspective(600px) rotateY(${isFlipped ? 180 : 0}deg)`,
-        config: { mass: 5, tension: 500, friction: 80, delay: 300},
+    const { transform, opacity } = useSpring({
+        to: {
+            opacity: isFlipped ? 1 : 0,
+            transform: `rotateY(${isFlipped ? 180 : 0}deg)`
+        },
+        from: {
+            opacity: 0,
+            transform: 'rotateY(0deg)'
+        },
+        config: { mass: 5, tension: 500, friction: 80 }
     });
+
+    const frontOpacity = opacity.interpolate(o => 1 - o);
+    const backOpacity = opacity;
 
     // Function to flip the card
     const toggleFlip = () => setIsFlipped(!isFlipped);
 
     return (
-        <animated.div
-            className="card largeCard"
-            style={{
-                transform,
-                cursor: 'pointer',
-            }}
-            onClick={toggleFlip}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-        >
-            {isFlipped ? props.frontSide : props.backSide}
-        </animated.div>
+        <div onClick={() => setIsFlipped(!isFlipped)}>
+            <animated.div style={{ transform }}>
+                <animated.div
+                    className="card"
+                    style={{
+                        transform: 'rotateY(0deg)',
+                        opacity: frontOpacity,
+                    }}
+                >
+                    {frontSide}
+                </animated.div>
+                <animated.div
+                    className="card"
+                    style={{
+                        opacity: backOpacity,
+                        transform: 'rotateY(180deg)',
+
+                    }}
+                >
+                    {backSide}
+                </animated.div>
+            </animated.div>
+        </div>
     );
 }
 
