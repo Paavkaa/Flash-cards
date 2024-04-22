@@ -53,11 +53,6 @@ export function footer() {
     )
 }
 
-/*
-* TODO: Make Card() clean template and add content as props
-*   - Add a prop for the both sides of the card
-*   - Maybe the preview card can be a separate component ???
-* */
 interface CardProps {
     frontSide: React.ReactNode;
     backSide: React.ReactNode;
@@ -105,29 +100,26 @@ export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
         config: { mass: 5, tension: 500, friction: 80 }
     });
 
-    const frontOpacity = opacity.interpolate(o => 1 - o);
-    const backOpacity = opacity;
-
     // Function to flip the card
     const toggleFlip = () => setIsFlipped(!isFlipped);
 
     return (
-        <div onClick={() => setIsFlipped(!isFlipped)} >
-            <animated.div style={{ transform }} className="card">
+        <div onClick={() => setIsFlipped(!isFlipped)}
+             onMouseMove={handleMouseMove}
+             onMouseLeave={handleMouseLeave}>
+            <animated.div style={{ transform }} className="card" >
                 <animated.div
                     style={{
                         transform: 'rotateY(0deg)',
-                        opacity: frontOpacity,
+                        display: isFlipped ? 'none' : 'block'
                     }}
                 >
                     {frontSide}
                 </animated.div>
                 <animated.div
                     style={{
-                        opacity: backOpacity,
-                        transform: 'rotateY(180deg)',
-                        position: 'absolute'
-
+                        display: isFlipped ? 'block' : 'none',
+                        transform: 'rotateY(180deg)'
                     }}
                 >
                     {backSide}
@@ -137,16 +129,24 @@ export const Card: React.FC<CardProps> = ({ frontSide, backSide }) => {
     );
 }
 
-export function CardPreview() {
+export function SetPreview() {
     return (
         <a className="card smallCard cardHover flex column justifySpaceBetween"
            href="/set">
             <h3>Card title</h3>
 
-            <div className="flex row justifySpaceBetween">
+            <div className="flex row justifySpaceBetween width80">
                 <p>In set: 13</p>
                 <p><HiUser/> Username</p>
             </div>
         </a>
+    );
+}
+
+
+export function Divider() {
+    return (
+        <div className="divider">
+        </div>
     );
 }

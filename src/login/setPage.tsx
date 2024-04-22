@@ -1,5 +1,7 @@
 import React from "react";
-import Nav, {Card} from "../utils";
+import Nav, {Card, Divider} from "../utils";
+import {IonItemDivider} from "@ionic/react";
+import {RxDividerVertical} from "react-icons/rx";
 
 export default function SetPage() {
     return (
@@ -10,34 +12,47 @@ export default function SetPage() {
 
                 <Card
                     frontSide={
-                        <>
+                        <div className="largeCard flex alignCenter justifyCenter textCenter">
                             <p>Lorem ipsum dolor sit amet.</p>
-                        </>
+                        </div>
 
                     }
 
                     backSide={
-                        <>
+                        <div className="largeCard flex alignCenter justifyCenter textCenter">
                             <p>Lorem ipsum dolor sit amet.</p>
-                        </>
+
+                        </div>
                     }
                 />
 
-                <div>
-                    <h3>All cards</h3>
+                <div className="width50">
+                    <h3 className="textCenter">All cards</h3>
                     <div className="flex column">
-                        <div>
-                            <div>
-                                <p>Frontside</p>
-                            </div>
-
-                            <div>
-                                <p>Backside</p>
-                            </div>
-                        </div>
-
+                        <CardPreview />
+                        <CardPreview />
+                        <CardPreview />
+                        <CardPreview />
+                        <CardPreview />
+                        <CardPreview />
                     </div>
                 </div>
+            </div>
+        </div>
+    );
+}
+
+function CardPreview() {
+    return (
+        <div className="card previewCard flex justifySpaceEvenly">
+            <div className="width50">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+
+            <Divider/>
+
+            <div className="width50">
+                <p>Lorem ipsum dolor.</p>
             </div>
         </div>
     );

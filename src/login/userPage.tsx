@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Nav, {Card, CardPreview} from "../utils";
+import Nav, {Card, SetPreview} from "../utils";
 import {HiArrowRight, HiArrowLeft} from "react-icons/hi";
 
 export default function UserPage() {
-    const fav = Array.from({ length: 14 }, (_, i) => <CardPreview key={i} />);
-    const all = Array.from({ length: 28 }, (_, i) => <CardPreview key={i} />);
+    const fav = Array.from({ length: 14 }, (_, i) => <SetPreview key={i} />);
+    const all = Array.from({ length: 28 }, (_, i) => <SetPreview key={i} />);
     return (
         <div className="main">
             <Nav />
             <h1>Welcome "user"</h1>
 
             <GridDisplaying headerText={'Favourite'} numToDisplay={8} allSets={fav} styles={"divBackground marginBottom20"} />
-            <GridDisplaying headerText={'All sets'} numToDisplay={12} allSets={all} styles={"divBackground"} />
+            <GridDisplaying headerText={'All sets'} numToDisplay={16} allSets={all} styles={"divBackground marginBottom20"} />
         </div>
     );
 }

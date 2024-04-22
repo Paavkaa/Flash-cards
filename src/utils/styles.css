@@ -8,7 +8,7 @@
     top: 0;
     left: 0;
 
-    background-color: #EBf5EE10;
+    background-color: #47198B20;
     backdrop-filter: blur(10px);
 
     height: 100%;
@@ -56,7 +56,6 @@
     justify-content: center;
     align-items: center;
 
-    padding: 20px;
     margin: 5px;
 
     border-radius: 20px;
@@ -70,12 +69,14 @@
 
 .card p, span, label {
     color: var(--primary-background);
-    transition: opacity 0.5s
+    transition: opacity 0.5s;
 }
 
 .previewCard {
-    max-width: 1000px;
-    margin: 0 50px;
+    width: 100%;
+
+    padding: 10px 20px;
+    font-size: 1.5rem;
 }
 
 .cardSide {
@@ -83,7 +84,7 @@
 }
 
 .smallCard {
-    width: 200px;
+    width: 15vw;
     height: 100px;
 
     border-radius: 15px;
@@ -105,10 +106,15 @@
 }
 
 .largeCard {
-    width: 20vw;
+    width: 15vw;
+    max-width: 1000px;
     height: 50vh;
 
+    margin: 0 50px;
+
     border-radius: 20px;
+
+    font-size: 1.8rem;
 }
 
 .cardGrid {
@@ -126,4 +132,13 @@
     transform: scale(1.02);
     transition: ease-in-out 80ms;
     box-shadow: rgba(0, 0, 0, 0.2)0 25px 50px -12px;
+}
+
+/* DIVIDER */
+.divider {
+    height: 100px;
+    width: 3px;
+    background: var(--primary-background);
+
+    margin: 5px 20px;
 }

@@ -178,7 +178,11 @@ a:hover {
 }
 
 .justifySpaceBetween {
-  justify-content: space-between;
+  justify-content: space-between !important;
+}
+
+.justifySpaceEvenly {
+  justify-content: space-evenly !important;
 }
 
 /* content width */
@@ -198,6 +202,10 @@ a:hover {
     width: 50%;
   }
 
+  .width30 {
+    width: 30%;
+  }
+
 /* content height */
   .height100 {
     height: 100%;
@@ -207,15 +215,25 @@ a:hover {
     height: 50%;
   }
 
-/* text position */
-
-.textCenter {
-    text-align: center;
-}
+/* gap and spacing */
+  .gap20 {
+    gap: 20px;
+  }
 
 /* Margin and padding */
   .marginBottom20 {
     margin-bottom: 20px;
+  }
+
+/* TEXT */
+/* text color */
+  .textDark {
+    color: var(--primary-background);
+  }
+
+/* text position */
+  .textCenter {
+    text-align: center;
   }
 
 /* OTHER */
