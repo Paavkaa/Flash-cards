@@ -1,5 +1,7 @@
 import React from "react";
 import Nav, {Card, Divider} from "../utils";
+import {HiArrowCircleLeft, HiArrowCircleRight, HiPlusCircle} from "react-icons/hi";
+import TextareaAutosize from 'react-textarea-autosize'
 
 export default function SetPage() {
     return (
@@ -8,31 +10,46 @@ export default function SetPage() {
             <div className="divBackground flex column alignCenter width80">
                 <h1>Set name</h1>
 
-                <Card
-                    frontSide={
-                        <div className="largeCard flex alignCenter justifyCenter textCenter">
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
+                <div>
+                    <Card
+                        frontSide={
+                            <div className="largeCard flex alignCenter justifyCenter textCenter">
+                                <p>Lorem ipsum dolor sit amet.</p>
+                            </div>
 
-                    }
+                        }
 
-                    backSide={
-                        <div className="largeCard flex alignCenter justifyCenter textCenter">
-                            <p>Lorem ipsum dolor sit amet.</p>
+                        backSide={
+                            <div className="largeCard flex alignCenter justifyCenter textCenter">
+                                <p>Lorem ipsum dolor sit amet.</p>
 
-                        </div>
-                    }
-                />
+                            </div>
+                        }
+                    />
+
+                    <div className="flex width100 alignCenter justifySpaceBetween buttonLine">
+                        <button>
+                            <HiArrowCircleLeft className="circleButton"/>
+                        </button>
+
+                        <p>
+                            3/17
+                        </p>
+
+                        <button>
+                            <HiArrowCircleRight className="circleButton"/>
+                        </button>
+                    </div>
+                </div>
 
                 <div className="width50">
                     <h3 className="textCenter">All cards</h3>
-                    <div className="flex column">
+                    <div className="flex column alignCenter gap10">
                         <CardPreview />
-                        <CardPreview />
-                        <CardPreview />
-                        <CardPreview />
-                        <CardPreview />
-                        <CardPreview />
+
+                        <button>
+                            <HiPlusCircle className="circleButton"/>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -43,15 +60,11 @@ export default function SetPage() {
 function CardPreview() {
     return (
         <div className="card previewCard flex justifySpaceEvenly">
-            <div className="width50">
-                <p>Lorem ipsum dolor sit amet.</p>
-            </div>
+            <TextareaAutosize/>
 
             <Divider/>
 
-            <div className="width50">
-                <p>Lorem ipsum dolor.</p>
-            </div>
+            <TextareaAutosize/>
         </div>
     );
 }

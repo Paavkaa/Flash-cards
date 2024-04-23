@@ -20,15 +20,15 @@ export default function Login() {
 
                 <form className="justifyCenter" action="">
                     <div className="labelPopUp width100">
-                        <label id="loginNameLabel" htmlFor="email">
+                        <label id="loginNameLabel" htmlFor="loginName">
                             Nickname / Email
                         </label>
                         <input
                             onChange={(e) => labelUp(e, setIsFilled)}
                             className="inputText"
-                            type="loginName"
-                            id="email"
-                            name="email"
+                            type="text"
+                            id="loginName"
+                            name="loginName"
                             required
                         />
                     </div>

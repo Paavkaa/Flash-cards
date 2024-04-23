@@ -86,3 +86,11 @@ h3 {
     color: var(--primary);
     opacity: 0.3;
 }
+
+/* CARD LIST */
+
+.buttonLine {
+    height: 5vh;
+
+    margin: 1.5rem 0;
+}

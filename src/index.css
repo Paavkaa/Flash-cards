@@ -79,11 +79,14 @@ a, button {
   cursor: pointer;
 }
 
-a:hover {
+a:hover, button:hover {
   color: var(--submit);
 }
 
 /* BUTTONS */
+.circleButton {
+  font-size: 3rem;
+} /* for circle icons */
 
 .smallButton, .mediumButton, .largeButton {
   background: var(--secondary);
@@ -115,7 +118,9 @@ a:hover {
 .borderButton:hover {
   background: none;
   color: var(--submit);
-    border-color: var(--submit);
+  border-color: var(--submit);
+
+  cursor: pointer;
 }
 
 .smallButton {
@@ -219,6 +224,10 @@ a:hover {
 /* gap and spacing */
   .gap20 {
     gap: 20px;
+  }
+
+  .gap10 {
+    gap: 10px;
   }
 
 /* Margin and padding */

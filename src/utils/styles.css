@@ -56,8 +56,6 @@
     justify-content: center;
     align-items: center;
 
-    margin: 5px;
-
     border-radius: 20px;
 }
 
@@ -134,11 +132,19 @@
     box-shadow: rgba(0, 0, 0, 0.2)0 25px 50px -12px;
 }
 
+.card textarea {
+    all: unset;
+    color: var(--primary-background);
+}
+
 /* DIVIDER */
 .divider {
     height: 100px;
     width: 3px;
+
     background: var(--primary-background);
 
     margin: 5px 20px;
+
+    border-radius: 50px;
 }
