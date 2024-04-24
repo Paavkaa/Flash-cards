@@ -5,7 +5,7 @@ import Home from './home/home';
 import Login, {Register} from "./login/login";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import UserPage from "./login/userPage";
-import SetPage from "./login/setPage";
+import SetPage, {NewSet} from "./login/setPage";
 
 export default function App() {
     return (
@@ -16,6 +16,7 @@ export default function App() {
                 <Route path="register" element={<Register />} />
                 <Route path="user" element={<UserPage />} />
                 <Route path="set" element={<SetPage />} />
+                <Route path="new-set" element={<NewSet />} />
             </Routes>
         </BrowserRouter>
     )

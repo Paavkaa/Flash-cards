@@ -140,6 +140,50 @@ export function SetPreview() {
     );
 }
 
+interface InputWithLabelProps {
+    id: string;
+    label: string;
+    type: string;
+    name: string;
+    required?: boolean;
+}
+
+export function InputWithLabel({ id, label, type, name, required = false }: InputWithLabelProps) {
+    const [isFilled, setIsFilled] = React.useState(false);
+
+    function labelUp(e: React.ChangeEvent<HTMLInputElement>) {
+        const { value } = e.target;
+        const isFilled = value.trim().length > 0;
+
+        setIsFilled(isFilled);
+
+        const label = document.getElementById(`${id}Label`);
+        if (label) {
+            if (isFilled) {
+                label.classList.add("labelUp");
+            } else {
+                label.classList.remove("labelUp");
+            }
+        }
+    }
+
+    return (
+        <div className="labelPopUp width100">
+            <label id={`${id}Label`} htmlFor={id}>
+                {label}
+            </label>
+            <input
+                onChange={labelUp}
+                className="inputText"
+                type={type}
+                id={id}
+                name={name}
+                required={required}
+            />
+        </div>
+    );
+}
+
 
 export function Divider() {
     return (

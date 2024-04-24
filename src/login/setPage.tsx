@@ -63,6 +63,32 @@ export default function SetPage() {
     );
 }
 
+export function NewSet() {
+    return (
+        <div className="main">
+            <FloatingLines/>
+            <Nav />
+            <div className="divBackground flex column alignCenter width80">
+                <a className="cleanLink flex gap10 alignCenter"
+                   href="/user">
+                    <HiOutlineChevronLeft/> Return
+                </a>
+
+                <h1>Create new set</h1>
+
+                <div className="width50">
+                    <form action="">
+                        <input type="text" className="inputText width100" name="setName" id="setName"/>
+                    </form>
+
+                    <h3 className="textCenter">All cards</h3>
+                    <CardsPreview/>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function CardsPreview() {
     const [cardPreviews, setCardPreviews] = React.useState([<NewCard key={0} />]);
 
