@@ -1,13 +1,25 @@
 import React from "react";
 import Nav, {Card, Divider} from "../utils";
-import {HiArrowCircleLeft, HiArrowCircleRight, HiPlusCircle} from "react-icons/hi";
+import {
+    HiArrowCircleLeft,
+    HiArrowCircleRight,
+    HiCheck, HiOutlineChevronLeft,
+    HiPlusCircle
+} from "react-icons/hi";
 import TextareaAutosize from 'react-textarea-autosize'
+import FloatingLines from "../utils/background";
 
 export default function SetPage() {
     return (
         <div className="main">
+            <FloatingLines/>
             <Nav />
             <div className="divBackground flex column alignCenter width80">
+                <a className="cleanLink flex gap10 alignCenter"
+                   href="/user">
+                    <HiOutlineChevronLeft/> Return
+                </a>
+                
                 <h1>Set name</h1>
 
                 <div>
@@ -44,27 +56,60 @@ export default function SetPage() {
 
                 <div className="width50">
                     <h3 className="textCenter">All cards</h3>
-                    <div className="flex column alignCenter gap10">
-                        <CardPreview />
-
-                        <button>
-                            <HiPlusCircle className="circleButton"/>
-                        </button>
-                    </div>
+                    <CardsPreview/>
                 </div>
             </div>
         </div>
     );
 }
 
-function CardPreview() {
+function CardsPreview() {
+    function SingleCardPreview() {
+        const [term, setTerm] = React.useState("");
+        const [definition, setDefinition] = React.useState("");
+
+        function handleTermChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+            setTerm(e.target.value);
+        }
+
+        function handleDefinitionChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
+            setDefinition(e.target.value);
+        }
+        function handleSubmit() {
+            console.log(term, definition);
+        }
+
+        return (
+            <div className="card previewCard flex column">
+                <div className="flex width100 alignCenter">
+                    <TextareaAutosize className="width50 height100"
+                                      id="term"
+                                      placeholder="Term"
+                                      onChange={handleTermChange}/>
+
+                    <Divider/>
+
+                    <TextareaAutosize className="width50"
+                                      id="definition"
+                                      placeholder="Definition"
+                                      onChange={handleDefinitionChange}/>
+                </div>
+
+                <button className="smallButton borderButton textDark flex alignCenter"
+                        onClick={handleSubmit}>
+                    Submit <HiCheck/>
+                </button>
+            </div>
+        )
+    }
+
     return (
-        <div className="card previewCard flex justifySpaceEvenly">
-            <TextareaAutosize/>
+        <div className="flex column alignCenter gap10">
+            <SingleCardPreview/>
 
-            <Divider/>
-
-            <TextareaAutosize/>
+            <button>
+                <HiPlusCircle className="circleButton"/>
+            </button>
         </div>
     );
 }

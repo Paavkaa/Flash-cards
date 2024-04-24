@@ -83,6 +83,10 @@ a:hover, button:hover {
   color: var(--submit);
 }
 
+.cleanLink {
+  text-decoration: none;
+}
+
 /* BUTTONS */
 .circleButton {
   font-size: 3rem;
@@ -183,6 +187,10 @@ a:hover, button:hover {
   align-items: center;
 }
 
+.alignStart {
+  align-items: start;
+}
+
 .justifySpaceBetween {
   justify-content: space-between !important;
 }
@@ -245,6 +253,8 @@ a:hover, button:hover {
   .textCenter {
     text-align: center;
   }
+
+
 
 /* OTHER */
 
