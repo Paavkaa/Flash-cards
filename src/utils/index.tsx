@@ -146,9 +146,10 @@ interface InputWithLabelProps {
     type: string;
     name: string;
     required?: boolean;
+    className?: string;
 }
 
-export function InputWithLabel({ id, label, type, name, required = false }: InputWithLabelProps) {
+export function InputWithLabel({ id, label, type, name, required = false, className }: InputWithLabelProps) {
     const [isFilled, setIsFilled] = React.useState(false);
 
     function labelUp(e: React.ChangeEvent<HTMLInputElement>) {
@@ -168,13 +169,12 @@ export function InputWithLabel({ id, label, type, name, required = false }: Inpu
     }
 
     return (
-        <div className="labelPopUp width100">
+        <div className={`inputText width100 ${className}`}>
             <label id={`${id}Label`} htmlFor={id}>
                 {label}
             </label>
             <input
                 onChange={labelUp}
-                className="inputText"
                 type={type}
                 id={id}
                 name={name}

@@ -11,6 +11,17 @@
   --primary-background: #0E0023;
   --secondary-background: #47198B;
 
+  /*Input sizes*/
+  --input-height: 3rem;
+  --input-font-size: 1.8rem;
+  --input-padding: 0.5rem;
+  --input-border-radius: 5px;
+
+  /* label sizes */
+  --label-font-size: 1rem;
+  --label-margin: 0.5rem;
+  --label-transform: 1.4rem;
+
 }
 
 /* GLOBAL STYLES */
@@ -242,6 +253,15 @@ a:hover, button:hover {
   .marginBottom20 {
     margin-bottom: 20px;
   }
+
+.marginTop20 {
+  margin-top: 20px;
+}
+
+
+.marginTop80 {
+    margin-top: 80px;
+}
 
 /* TEXT */
 /* text color */

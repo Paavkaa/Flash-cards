@@ -148,3 +148,86 @@
 
     border-radius: 50px;
 }
+
+/* INPUT */
+label {
+    font-family: 'Azeret Mono', serif;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+input {
+    all: unset;
+}
+
+/* input text with default size */
+.inputText {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0.5rem 0;
+}
+
+.inputText input {
+    height: var(--input-height);
+    font-size: var(--input-font-size);
+
+    padding-left: var(--input-padding);
+
+    background: #EBf5EE10;
+
+    border-radius: var(--input-border-radius);
+}
+
+.inputText > label {
+    font-size: var(--label-font-size);
+    margin-left: var(--label-margin);
+
+    transform: translateY(var(--label-transform));
+    transition: transform 0.2s ease-in-out;
+}
+
+/* smaller input text */
+
+.smallInput > input {
+    height: calc(var(--input-height) - 0.5rem);
+    font-size: calc(var(--input-font-size) - 0.2rem);
+
+    padding-left: calc(var(--input-padding) - 0.2rem);
+}
+
+.smallInput > label {
+    font-size: calc(var(--label-font-size) - 0.2rem);
+    margin-left: calc(var(--label-margin) - 0.2rem);
+
+    transform: translateY(calc(var(--label-transform) - 0.2rem));
+}
+
+/* larger input text */
+
+.largeInput > input {
+    height: calc(var(--input-height) + 0.5rem);
+    font-size: calc(var(--input-font-size) + 0.4rem);
+
+    padding-left: calc(var(--input-padding) + 0.4rem);
+}
+
+.largeInput > label {
+    font-size: calc(var(--label-font-size) + 0.4rem);
+    margin-left: calc(var(--label-margin) + 0.4rem);
+
+    transform: translateY(calc(var(--label-transform) + 0.5rem));
+}
+
+.inputText:hover > label,
+.inputText:focus-within > label,
+.inputText > label.labelUp {
+    transform: translateY(0);
+}
+
+.loginPosition {
+    margin-top: 5%;
+
+    width: 70vh;
+    min-height: 50vh;
+}

@@ -53,15 +53,15 @@ export function Register() {
                 <h2 className="textCenter">Register</h2>
 
                 <form className="justifyCenter" action="">
-                    <InputWithLabel id={"loginName"} name={"loginName"} label={"loginName"} type={"text"}/>
+                    <InputWithLabel id={"loginName"} name={"loginName"} label={"login name"} type={"text"} />
 
-                    <InputWithLabel id={"email"} name={"email"} label={"email"} type={"email"}/>
+                    <InputWithLabel id={"email"} name={"email"} label={"email"} type={"email"} />
 
 
-                    <div className="width100 marginTop">
-                        <InputWithLabel id={"password1"} name={"password1"} label={"password"} type={"password"}/>
+                    <div className="width100 marginTop20">
+                        <InputWithLabel id={"password1"} name={"password1"} label={"password"} type={"password"} />
 
-                        <InputWithLabel id={"password2"} name={"password2"} label={"password again"} type={"password"}/>
+                        <InputWithLabel id={"password2"} name={"password2"} label={"password again"} type={"password"} />
                     </div>
 
                     <button className="mediumButton"

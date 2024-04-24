@@ -6,71 +6,10 @@ form {
     justify-content: center;
 }
 
-label {
-    font-family: 'Azeret Mono', serif;
-    letter-spacing: 2px;
-    color: var(--primary);
-}
-
-input {
-    all: unset;
-}
-
-.inputText {
-    height: 3rem;
-    font-size: 1.8rem;
-
-    padding-left: 0.5rem;
-
-    background: #EBf5EE10;
-
-    border-radius: 5px;
-}
-
-.labelPopUp {
-    display: flex;
-    flex-direction: column;
-
-    margin: 0.5rem 0;
-}
-
-.labelPopUp > label {
-    font-size: 0.8rem;
-    margin-left: 0.5rem;
-
-    transform: translateY(1.15rem);
-    transition: transform 0.2s ease-in-out;
-}
-
-.labelPopUp:hover > label,
-.labelPopUp:focus-within > label,
-.labelPopUp > label.labelUp {
-    transform: translateY(0);
-}
-
-.loginPosition {
-    margin-top: 5%;
-
-    width: 70vh;
-    min-height: 50vh;
-}
-
-/* TEXT */
-
-h3 {
-    margin: 10vh 0 1vh;
-}
-
 /* BUTTONS */
 
 #logIn {
     margin: 3rem 0 2rem;
-}
-
-/* OTHER */
-
-.marginTop {
-    margin-top: 2rem;
 }
 
 /* CARD GRID */
