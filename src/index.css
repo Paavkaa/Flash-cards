@@ -155,7 +155,7 @@ a:hover, button:hover {
 .largeButton {
   font-size: 2rem;
 
-  padding: 16px 48px 20px;
+  padding: 16px 48px;
   border-radius: 50px;
 
   height: 2rem;
