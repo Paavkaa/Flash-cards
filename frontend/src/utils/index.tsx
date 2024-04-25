@@ -40,6 +40,14 @@ export default function Nav() {
                             <HiUser/>
                     }
                 </div>
+
+                <div className="navItem">
+                    {
+                        isHovered ?
+                            <a style={{fontFamily: 'Azeret Mono'}} className="navItem" href="/set"><HiUser/> Login</a> :
+                            <HiUser/>
+                    }
+                </div>
             </div>
         </animated.div>
     );
@@ -147,9 +155,21 @@ interface InputWithLabelProps {
     name: string;
     required?: boolean;
     className?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export function InputWithLabel({ id, label, type, name, required = false, className }: InputWithLabelProps) {
+// TypeScript types for props, assuming you have them defined somewhere
+interface InputWithLabelProps {
+    id: string;
+    label: string;
+    type: string;
+    name: string;
+    required?: boolean;
+    className?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void; // New prop for external change handler
+}
+
+export function InputWithLabel({ id, label, type, name, required = false, className = '', onChange }: InputWithLabelProps) {
     const [isFilled, setIsFilled] = React.useState(false);
 
     function labelUp(e: React.ChangeEvent<HTMLInputElement>) {
@@ -165,6 +185,11 @@ export function InputWithLabel({ id, label, type, name, required = false, classN
             } else {
                 label.classList.remove("labelUp");
             }
+        }
+
+        // Call the external change handler passed from the parent component
+        if (onChange) {
+            onChange(e);
         }
     }
 
