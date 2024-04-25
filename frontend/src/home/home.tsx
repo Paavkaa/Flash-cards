@@ -2,6 +2,7 @@ import React from 'react';
 import FloatingLines from "../utils/background";
 import Nav, {Card} from "../utils";
 import "./style.css";
+import TestConnection from "../api/TestConnection";
 
 export default function Home() {
     const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
@@ -38,10 +39,7 @@ export default function Home() {
                 />
 
                 <div className="divBackground width50">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis commodi corporis
-                    dolorem
-                    ducimus expedita fugit, iste neque nesciunt porro repellendus veniam. Consectetur ipsa, iste natus
-                    numquam vel veniam voluptatum!
+                    <TestConnection/>
                 </div>
             </div>
 
