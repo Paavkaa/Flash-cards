@@ -1,6 +1,5 @@
 package com.example.model;
 
-import com.example.model.Set;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
@@ -15,9 +14,9 @@ public class User {
     private List<Set> sets;  // List of sets owned by the user
 
     // Constructors, getters, and setters
-    public User(String uuid, String userName, String email, String password, List<Set> sets) {
+    public User(String uuid, String username, String email, String password, List<Set> sets) {
         this.uuid = uuid;
-        this.userName = userName;
+        this.userName = username;
         this.email = email;
         this.password = password;
         this.sets = sets;
@@ -32,11 +31,11 @@ public class User {
         this.uuid = uuid;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public void setUsername(String userName) {
         this.userName = userName;
     }
 

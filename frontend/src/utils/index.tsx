@@ -40,6 +40,14 @@ export default function Nav() {
                             <HiUser/>
                     }
                 </div>
+
+                <div className="navItem">
+                    {
+                        isHovered ?
+                            <a style={{fontFamily: 'Azeret Mono'}} className="navItem" href="/set"><HiUser/> Login</a> :
+                            <HiUser/>
+                    }
+                </div>
             </div>
         </animated.div>
     );
