@@ -31,11 +31,11 @@ public class RegisterController {
         }
 
         if(registerService.isUsernameTaken(username)) {
-            return ResponseEntity.status(HttpStatusCode.valueOf(409)).body("Username is already taken");
+            return ResponseEntity.status(HttpStatusCode.valueOf(409)).body("USERNAME_TAKEN");
         }
 
         if (registerService.isEmailTaken(email)) {
-            return ResponseEntity.status(HttpStatusCode.valueOf(409)).body("Email is already taken");
+            return ResponseEntity.status(HttpStatusCode.valueOf(409)).body("EMAIL_TAKEN");
         }
 
         user.setPassword(passwordHash(password));

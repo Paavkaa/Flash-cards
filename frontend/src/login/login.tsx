@@ -51,6 +51,11 @@ export function Register() {
         password2: ""
     });
 
+    const [error, setError] = React.useState({
+        loginName: false,
+        email: false
+    });
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
@@ -60,6 +65,7 @@ export function Register() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
         if(formData.password1 !== formData.password2) {
             alert("Passwords do not match!");
             return;
@@ -84,7 +90,16 @@ export function Register() {
             } else {
                 const errorMessage = await response.text();
                 if (response.status === 409) {
-                    alert(`Registration failed: ${errorMessage}`);
+
+                    if (errorMessage === "USERNAME_TAKEN") {
+                        setError({...error, loginName: true});
+                        alert('Username is already taken!');
+                    }
+                    else if (errorMessage === "EMAIL_TAKEN")  {
+                        setError({...error, email: true});
+                        alert('Email is already taken!');
+                    }
+
                 } else {
                     throw new Error(`Registration failed: ${response.statusText}`);
                 }
@@ -102,16 +117,41 @@ export function Register() {
             <div className="divBackground loginPosition">
                 <h2 className="textCenter">Register</h2>
 
-                <form className="justifyCenter" action="" onSubmit={handleSubmit}>
-                    <InputWithLabel id={"loginName"} name={"loginName"} label={"login name"} type={"text"} onChange={handleChange} />
+                {/*TODO: Add error message to username and email when it is duplicity*/}
 
-                    <InputWithLabel id={"email"} name={"email"} label={"email"} type={"email"} onChange={handleChange} />
+                <form className="justifyCenter" action="" onSubmit={handleSubmit}>
+                    <InputWithLabel
+                        id={"loginName"}
+                        name={"loginName"}
+                        label={"login name"}
+                        type={"text"}
+                        onChange={handleChange}
+                        error={error.loginName}/>
+
+                    <InputWithLabel
+                        id={"email"}
+                        name={"email"}
+                        label={"email"}
+                        type={"email"}
+                        onChange={handleChange}
+                        error={error.email}
+                    />
 
 
                     <div className="width100 marginTop20">
-                        <InputWithLabel id={"password1"} name={"password1"} label={"password"} type={"password"} onChange={handleChange} />
+                        <InputWithLabel
+                            id={"password1"}
+                            name={"password1"}
+                            label={"password"}
+                            type={"password"}
+                            onChange={handleChange}/>
 
-                        <InputWithLabel id={"password2"} name={"password2"} label={"password again"} type={"password"} onChange={handleChange} />
+                        <InputWithLabel
+                            id={"password2"}
+                            name={"password2"}
+                            label={"password again"}
+                            type={"password"}
+                            onChange={handleChange} />
                     </div>
 
                     <button className="mediumButton"
