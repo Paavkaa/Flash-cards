@@ -72,7 +72,7 @@ export function Register() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    loginName: formData.loginName,
+                    username: formData.loginName,
                     email: formData.email,
                     password: formData.password1
                 })
