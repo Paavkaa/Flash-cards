@@ -78,14 +78,20 @@ export function Register() {
                 })
             });
 
-            const data = await response.json();
-            if(response.ok) {
+            if (response.ok) {
+                const data = await response.json();
                 alert("Registered successfully!");
             } else {
-                throw new Error(data.message || "Failed to register!");
+                const errorMessage = await response.text();
+                if (response.status === 409) {
+                    alert(`Registration failed: ${errorMessage}`);
+                } else {
+                    throw new Error(`Registration failed: ${response.statusText}`);
+                }
             }
         } catch (error) {
-            console.error(error);
+            console.error("Error:", error);
+            alert("An error occurred while registering. Please try again.");
         }
     }
 

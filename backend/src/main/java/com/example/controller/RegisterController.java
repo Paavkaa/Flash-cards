@@ -1,8 +1,9 @@
 package com.example.controller;
 
 import com.example.model.User;
-import com.example.service.UserService;
+import com.example.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +13,11 @@ import org.springframework.web.bind.annotation.*;
 public class RegisterController {
 
     @Autowired
-    private UserService userService;
+    private RegisterService registerService;
 
     // Endpoint to create a new user
     @PostMapping("/api/register")
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         String username = user.getUsername();
         String email = user.getEmail();
         String password = user.getPassword();
@@ -25,15 +26,21 @@ public class RegisterController {
             return ResponseEntity.badRequest().body(null);
         }
 
-       if(!isValidEmail(email)) {
-            return ResponseEntity.badRequest().body(null);
-       }
+        if(!isValidEmail(email)) {
+            return ResponseEntity.badRequest().body("Email is not valid");
+        }
 
-       //TODO: Check if username and email are unique
+        if(registerService.isUsernameTaken(username)) {
+            return ResponseEntity.status(HttpStatusCode.valueOf(409)).body("Username is already taken");
+        }
+
+        if (registerService.isEmailTaken(email)) {
+            return ResponseEntity.status(HttpStatusCode.valueOf(409)).body("Email is already taken");
+        }
 
         user.setPassword(passwordHash(password));
 
-        User createdUser = userService.createUser(user);
+        User createdUser = registerService.createUser(user);
         return ResponseEntity.ok(createdUser);
     }
 

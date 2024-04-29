@@ -8,7 +8,7 @@ import java.util.List;
 public class User {
     @Id
     private String uuid;  // Unique identifier for each user
-    private String userName;  // Username of the user
+    private String username;  // Username of the user
     private String email;  // Email address of the user
     private String password;  // Password for user authentication
     private List<Set> sets;  // List of sets owned by the user
@@ -16,7 +16,7 @@ public class User {
     // Constructors, getters, and setters
     public User(String uuid, String username, String email, String password, List<Set> sets) {
         this.uuid = uuid;
-        this.userName = username;
+        this.username = username;
         this.email = email;
         this.password = password;
         this.sets = sets;
@@ -32,11 +32,11 @@ public class User {
     }
 
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     public void setUsername(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
 
     public String getEmail() {
