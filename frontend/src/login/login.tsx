@@ -126,7 +126,9 @@ export function Register() {
                         label={"login name"}
                         type={"text"}
                         onChange={handleChange}
-                        error={error.loginName}/>
+                        error={error.loginName}
+                        errorMessage={"Login name is already used"}
+                    />
 
                     <InputWithLabel
                         id={"email"}
@@ -135,6 +137,7 @@ export function Register() {
                         type={"email"}
                         onChange={handleChange}
                         error={error.email}
+                        errorMessage={"Email is already used"}
                     />
 
 

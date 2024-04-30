@@ -165,6 +165,15 @@ input {
         color: var(--warning);
     }
 
+    .error input {
+        border: 2px solid var(--warning);
+    }
+
+    .error p {
+        color: var(--warning);
+        margin: var(--label-margin) 0 0 var(--label-margin);
+    }
+
 /* input text with default size */
     .inputText {
         display: flex;
