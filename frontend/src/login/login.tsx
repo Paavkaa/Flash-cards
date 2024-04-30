@@ -66,7 +66,15 @@ export function Register() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if(formData.password1 !== formData.password2) {
+        // Use a functional update to ensure you're working with the most up-to-date state
+        setError(prevError => ({
+            ...prevError,
+            loginName: false,
+            email: false
+        }));
+
+        // Continue with your form submission logic
+        if (formData.password1 !== formData.password2) {
             alert("Passwords do not match!");
             return;
         }
@@ -87,19 +95,19 @@ export function Register() {
             if (response.ok) {
                 const data = await response.json();
                 alert("Registered successfully!");
+                // Optionally reset form data here if needed
             } else {
                 const errorMessage = await response.text();
                 if (response.status === 409) {
-
-                    if (errorMessage === "USERNAME_TAKEN") {
-                        setError({...error, loginName: true});
+                    // Handle specific errors based on the API response
+                    if (errorMessage.includes("USERNAME_TAKEN")) {
+                        setError(prev => ({ ...prev, loginName: true }));
                         alert('Username is already taken!');
                     }
-                    else if (errorMessage === "EMAIL_TAKEN")  {
-                        setError({...error, email: true});
+                    if (errorMessage.includes("EMAIL_TAKEN")) {
+                        setError(prev => ({ ...prev, email: true }));
                         alert('Email is already taken!');
                     }
-
                 } else {
                     throw new Error(`Registration failed: ${response.statusText}`);
                 }
@@ -108,7 +116,7 @@ export function Register() {
             console.error("Error:", error);
             alert("An error occurred while registering. Please try again.");
         }
-    }
+    };
 
     return (
         <>
@@ -116,8 +124,6 @@ export function Register() {
             <Nav/>
             <div className="divBackground loginPosition">
                 <h2 className="textCenter">Register</h2>
-
-                {/*TODO: Add error message to username and email when it is duplicity*/}
 
                 <form className="justifyCenter" action="" onSubmit={handleSubmit}>
                     <InputWithLabel
@@ -127,7 +133,7 @@ export function Register() {
                         type={"text"}
                         onChange={handleChange}
                         error={error.loginName}
-                        errorMessage={"Login name is already used"}
+                        errorMessage={"username is already used"}
                     />
 
                     <InputWithLabel
