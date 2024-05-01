@@ -5,6 +5,11 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserRepository extends MongoRepository<User, String> {
 
+    // Username
     boolean existsByUsername(String username);
+    User findByUsername(String username);
+
+    // Email
     boolean existsByEmail(String email);
+    User findByEmail(String email);
 }
