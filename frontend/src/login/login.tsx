@@ -8,6 +8,36 @@ import {useNavigate} from 'react-router-dom';
 
 
 export default function Login() {
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:8080/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+            } else {
+                const errorMessage = await response.text();
+                console.error(errorMessage);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    };
+
     return (
         <>
             <FloatingLines/>
@@ -15,10 +45,10 @@ export default function Login() {
             <div className="divBackground loginPosition">
                 <h1 className="textCenter">Log in</h1>
 
-                <form className="justifyCenter" action="">
-                    <InputWithLabel id={"loginName"} name={"loginName"} label={"loginName"} type={"text"}/>
+                <form className="justifyCenter" action="" onSubmit={handleLogin}>
+                    <InputWithLabel id={"username"} name={"username"} label={"username"} type={"text"}/>
 
-                    <InputWithLabel id={"loginName"} name={"loginName"} label={"loginName"} type={"text"}/>
+                    <InputWithLabel id={"password3"} name={"password"} label={"password"} type={"password"}/>
 
                     <button className="mediumButton"
                             id="logIn"

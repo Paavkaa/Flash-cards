@@ -5,13 +5,10 @@ import com.example.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/login")
 public class LoginController {
     private final LoginService loginService;
 
@@ -21,6 +18,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<String> login(@RequestBody User user) {
         if (loginService.authenticateUser(user.getUsername(), user.getPassword())) {
             return ResponseEntity.ok("Login successful");
