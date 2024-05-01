@@ -2,14 +2,16 @@ package com.example.service;
 
 import com.example.model.User;
 import com.example.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class RegisterService {
 
-    @Autowired
-    private UserRepository userRepository;
+    public RegisterService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    private final UserRepository userRepository;
 
     public User createUser(User user) {
         return userRepository.save(user);

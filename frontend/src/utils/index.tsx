@@ -168,10 +168,9 @@ interface InputWithLabelProps {
     className?: string;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     error?: boolean;
-    errorMessage?: string;
 }
 
-export function InputWithLabel({ id, label, type, name, required = false, className = '', onChange, error, errorMessage }: InputWithLabelProps) {
+export function InputWithLabel({ id, label, type, name, required = false, className = '', onChange, error }: InputWithLabelProps) {
     const [isFilled, setIsFilled] = React.useState(false);
 
     function labelUp(e: React.ChangeEvent<HTMLInputElement>) {
@@ -207,7 +206,6 @@ export function InputWithLabel({ id, label, type, name, required = false, classN
                 name={name}
                 required={required}
             />
-            {error && <p className="error">{errorMessage}</p>}
         </div>
     );
 }

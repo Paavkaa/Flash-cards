@@ -2,7 +2,6 @@ package com.example.controller;
 
 import com.example.model.User;
 import com.example.service.RegisterService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class RegisterController {
 
-    @Autowired
     private RegisterService registerService;
 
     // Endpoint to create a new user
@@ -27,7 +25,7 @@ public class RegisterController {
         }
 
         if(!isValidEmail(email)) {
-            return ResponseEntity.badRequest().body("Email is not valid");
+            return ResponseEntity.badRequest().body("EMAIL_INVALID");
         }
 
         if(registerService.isUsernameTaken(username)) {
