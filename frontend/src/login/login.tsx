@@ -11,8 +11,18 @@ export default function Login() {
     const [username, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
 
+    /*const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUsername(e.target.value);
+    };
+
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPassword(e.target.value);
+    };*/
+
     const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        console.log(username + " " + password);
 
         try {
             const response = await fetch("http://localhost:8080/api/login", {
@@ -20,10 +30,11 @@ export default function Login() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    username,
-                    password
-                })
+                body: JSON.stringify(
+                    {
+                        username: username,
+                        password: password
+                    })
             });
 
             if (response.ok) {
@@ -46,9 +57,21 @@ export default function Login() {
                 <h1 className="textCenter">Log in</h1>
 
                 <form className="justifyCenter" action="" onSubmit={handleLogin}>
-                    <InputWithLabel id={"username"} name={"username"} label={"username"} type={"text"}/>
+                    <InputWithLabel
+                        id="username"
+                        name="username"
+                        label="Username"
+                        type="text"
+                        onChange={(e) => setUsername(e.target.value)}  // Update state on change
+                    />
 
-                    <InputWithLabel id={"password3"} name={"password"} label={"password"} type={"password"}/>
+                    <InputWithLabel
+                        id="password"
+                        name="password"
+                        label="Password"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}  // Update state on change
+                    />
 
                     <button className="mediumButton"
                             id="logIn"
