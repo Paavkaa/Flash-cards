@@ -4,6 +4,8 @@ import "./styles.css";
 import "../index.css";
 import FloatingLines from "../utils/background";
 import {BsFacebook, BsGoogle} from "react-icons/bs";
+import {useNavigate} from 'react-router-dom';
+
 
 export default function Login() {
     return (
@@ -44,6 +46,8 @@ export default function Login() {
 }
 
 export function Register() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = React.useState({
         loginName: "",
         email: "",
@@ -94,22 +98,25 @@ export function Register() {
 
             if (response.ok) {
                 const data = await response.json();
-                alert("Registered successfully!");
-                // Optionally reset form data here if needed
+                navigate('/user')
+
+
             } else {
                 const errorMessage = await response.text();
-                if (response.status === 409) {
-                    // Handle specific errors based on the API response
-                    if (errorMessage.includes("USERNAME_TAKEN")) {
-                        setError(prev => ({ ...prev, loginName: true }));
-                        alert('Username is already taken!');
-                    }
-                    if (errorMessage.includes("EMAIL_TAKEN")) {
-                        setError(prev => ({ ...prev, email: true }));
-                        alert('Email is already taken!');
-                    }
-                } else {
-                    throw new Error(`Registration failed: ${response.statusText}`);
+                // 400
+                if (errorMessage.includes("EMAIL_INVALID")) {
+                    setError(prev => ({ ...prev, email: true }));
+                    alert('Email is invalid!');
+                }
+
+                //409
+                if (errorMessage.includes("USERNAME_TAKEN")) {
+                    setError(prev => ({ ...prev, loginName: true }));
+                    alert('Username is already taken!');
+                }
+                if (errorMessage.includes("EMAIL_TAKEN")) {
+                    setError(prev => ({ ...prev, email: true }));
+                    alert('Email is already taken!');
                 }
             }
         } catch (error) {
@@ -133,7 +140,6 @@ export function Register() {
                         type={"text"}
                         onChange={handleChange}
                         error={error.loginName}
-                        errorMessage={"username is already used"}
                     />
 
                     <InputWithLabel
@@ -143,7 +149,6 @@ export function Register() {
                         type={"email"}
                         onChange={handleChange}
                         error={error.email}
-                        errorMessage={"Email is already used"}
                     />
 
 
